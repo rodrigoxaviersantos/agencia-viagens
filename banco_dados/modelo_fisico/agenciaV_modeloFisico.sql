@@ -89,3 +89,16 @@ JOIN Cliente c ON u.id_usuario = c.id_usuario
 JOIN Pedido p ON p.id_usuario = c.id_usuario 
 JOIN Passagem pa ON p.num_pedido = pa.num_pedido
 WHERE c.cpf_cliente = '12345678902'; 
+
+-- Delete - Excluindo um pedido e sua passagem associada 
+
+DELETE FROM Pedido, Passagem
+USING Pedido
+JOIN Passagem ON Pedido.num_pedido = Passagem.num_pedido
+WHERE Pedido.num_pedido = "SeuNumeroDePedido";
+
+-- Update 
+
+UPDATE Usuario
+SET email_usuario = ?, senha_usuario = ?
+WHERE id_usuario = ?;
